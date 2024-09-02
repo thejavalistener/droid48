@@ -13,7 +13,7 @@ android {
         }
     }
     compileSdk 34
-    ndkVersion "26.2.11394342"
+    ndkVersion "27.0.12077973"
 
     defaultConfig {
         applicationId "org.ab.x48"
