@@ -58,8 +58,13 @@ public class Settings extends PreferenceActivity {
 	        blockOrientation.setTitle(R.string.blockorientation_msgbox);
 	        blockOrientation.setSummary(R.string.blockorientation_msgboxvalue);
 	        inlinePrefCat.addPreference(blockOrientation);
-	        
-	        CheckBoxPreference keybLitePref = new CheckBoxPreference(this);
+
+			// -- THE JAVA LISTENER
+			blockOrientation.setChecked(true);
+			blockOrientation.setEnabled(false);
+            // -- /THE JAVA LISTENER
+
+		 CheckBoxPreference keybLitePref = new CheckBoxPreference(this);
 	        keybLitePref.setKey("keybLite");
 	        keybLitePref.setTitle(R.string.show_lite_keyb);
 	        keybLitePref.setSummary(R.string.show_lite_keyb_summary);

@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Vector;
 
+import android.content.Intent;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -1149,6 +1150,10 @@ public class HPView extends SurfaceView implements SurfaceHolder.Callback {
 	
 	private boolean actionKey(boolean d, int code) {
 		switch (code) {
+
+			// -- THE JAVA LISTENER (sustituyo este bloque por el de abajo)
+
+			/*
 			case KeyEvent.KEYCODE_BACK: {
 				SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(x48);
 		        String bString = mPrefs.getString("backkey", "0");
@@ -1160,6 +1165,19 @@ public class HPView extends SurfaceView implements SurfaceHolder.Callback {
 		        	if (d) key(44, true); else key(44, false); return true;
 		        } 
 			}
+			*/
+
+			case KeyEvent.KEYCODE_BACK: {
+				if (d) {
+					Intent intent = new Intent(Intent.ACTION_MAIN);
+					intent.addCategory(Intent.CATEGORY_HOME);
+					intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+					x48.startActivity(intent);
+				}
+				return true;
+			}
+
+			// -- /THE JAVA LISTENER
 			
 			case KeyEvent.KEYCODE_0: if (d) key(45, true); else key(45, false); return true;
 			case KeyEvent.KEYCODE_1: if (d) key(40, true); else key(40, false); return true;

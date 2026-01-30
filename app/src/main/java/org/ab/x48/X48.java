@@ -54,8 +54,17 @@ public class X48 extends Activity {
 			Log.d("x48", message);
 		}
 	};
-	
-    @Override
+
+	// --THE JAVA LISTENER
+	@Override
+	public void onBackPressed() {
+		moveTaskToBack(true); // vuelve al Home sin cerrar del todo
+	}
+
+	// --/THE JAVA LISTENER
+
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -134,10 +143,21 @@ public class X48 extends Activity {
     
     public void checkPrefs() {
     	SharedPreferences mPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+
+		// -- THE JAVA LISTENER (comento esto y agrego lo de abajo)
+
+		/*
     	if (mPrefs.getBoolean("blockOrientation", false))
     		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
     	else
     		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+		 */
+
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+
+		// -- /THE JAVA LISTENER
+
+
     	bitmapSkin = mPrefs.getBoolean("bitmapskin", false);
     	String port1 = mPrefs.getString("port1", "0");
 		managePort(1, port1);
