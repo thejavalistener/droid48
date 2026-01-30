@@ -16,7 +16,7 @@ android {
     ndkVersion "27.0.12077973"
 
     defaultConfig {
-        applicationId "org.ab.x48"
+        applicationId "com.thejavalistener.droid48"
         minSdkVersion 21
         targetSdkVersion 34
 
